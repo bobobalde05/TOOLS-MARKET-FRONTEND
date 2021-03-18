@@ -209,56 +209,7 @@
         </form>
       </div>
     </div>
-    <div class="google-map">
-      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCoZ8GONoPDlWh_wqGna7vadig_4a4U5M0"></script>
-      <div style="overflow:hidden;height:483px;width:760px;">
-        <div id="gmap_canvas" style="height:483px;width:760px;"></div>
-        <style>
-          #gmap_canvas img {
-            max-width: none !important;
-            background: none !important;
-          }
-        </style>
-      </div>
-
-      <a href="https://www.embed-map.net/">embedded google map</a>
-      <script
-        type="text/javascript"
-        src="https://embedmaps.com/google-maps-authorization/script.js?id=74b687d12577145890bbe64b11bec3a84f8f9273"
-      ></script>
-      <script type="text/javascript">
-        function init_map() {
-          var myOptions = {
-            zoom: 12,
-            center: new google.maps.LatLng(
-              6.543438399999999,
-              3.360773999999992
-            ),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          map = new google.maps.Map(
-            document.getElementById("gmap_canvas"),
-            myOptions
-          );
-          marker = new google.maps.Marker({
-            map: map,
-            position: new google.maps.LatLng(
-              6.543438399999999,
-              3.360773999999992
-            )
-          });
-          infowindow = new google.maps.InfoWindow({
-            content:
-              "<strong>Location</strong><br>20, okusaga street,ilupeju<br>11001 Lagos<br>"
-          });
-          google.maps.event.addListener(marker, "click", function() {
-            infowindow.open(map, marker);
-          });
-          infowindow.open(map, marker);
-        }
-        google.maps.event.addDomListener(window, "load", init_map);
-      </script>
-    </div>
+   
 
     <footer>
       <div class="footer">
