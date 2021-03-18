@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Use my Tools</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header sign-header">
+        <img class="logo" src="img/useTools.jpg" alt="logo" />
+        <nav class="nav-bar" id='myTopnav'>
+          <a href="#contact">About Us</a>
+          <a href="requests.html">Requests</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="index.html" class="tab">Home</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </nav>
+      </header>
+
+     
+
+      <div class="form-container">
+            <form id="login-form" action="">
+              <div>
+                <h3>Please enter your credentials to log in</h3>
+                <p class="label"><label for="email" class="label">Email</label></p>
+    
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autofocus
+                  required
+                />
+    
+                <p class="label">
+                  <label for="password" class="label">Password</label>
+                </p>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter password"
+                  required
+                />
+                <button type="submit" id="submit-login">
+                  Login
+                </button>
+                <p class="acct">
+                  <a class="sign-link forgot-password" href="#"
+                    >Forgot Password?</a
+                  >
+                </p>
+                <p class="acct">
+                  Don't have an account yet?
+                  <a class="sign-link" href="signup.html">Sign Up</a>
+                </p>
+              </div>
+            </form>
+          </div>
+       
+
+    <footer>
+      <div class="footer">
+        <div class="footer-contents">
+          <h3>Contact Us</h3>
+          <p>House 44, Community Building</p>
+          <p>Victoria Island, Lagos</p>
+          <p><i class="fas fa-tty"></i>+2348098326523</p>
+          <p><i class="fas fa-phone-alt"></i></p>
+        </div>
+        <div class="footer-contents">
+          <h3>Join Us</h3>
+          <ul>
+            <li><i class="fab fa-facebook-square"></i>&nbsp;Facebook</li>
+            <li><i class="fab fa-twitter-square"></i>&nbsp;Twitter</li>
+            <li><i class="fab fa-instagram"></i>&nbsp;Instagram</li>
+          </ul>
+        </div>
+
+        <div class="footer-contents">
+          <h3>Company</h3>
+          <ul>
+            <li>About</li>
+            <li>Blog</li>
+            <li>Partners</li>
+            <li>Privacy</li>
+            <li>Terms and conditions</li>
+          </ul>
+        </div>
+
+        <div class="footer-contents">
+          <h3>Help</h3>
+          <ul>
+            <li>Contact</li>
+            <li>FAQ</li>
+            <li>Why Borrow</li>
+            <li>Why Lend</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy;2019.Use My Tools. All right reserved</p>
+      </div>
+    </footer>
+    <script src='./JS/index.js'></script>
+  </body>
+</html>
