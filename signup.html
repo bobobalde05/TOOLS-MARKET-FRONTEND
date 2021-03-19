@@ -34,6 +34,7 @@
             <form id="login-form" action="">
               <div>
                 <h3>Create an account to get started</h3>
+                <div class="feedback_container"></div>
                 <hr>
 
                 <p class="label">
@@ -41,7 +42,7 @@
                       </p>
                       <input
                         type="text"
-                        id="FirstName"
+                        id="firstName"
                         name="FirstName"
                         placeholder="FirstName"
                         required
@@ -52,7 +53,7 @@
                           </p>
                           <input
                             type="text"
-                            id="LastName"
+                            id="lastName"
                             name="LastName"
                             placeholder="LastName"
                             required
@@ -67,6 +68,18 @@
                   autofocus
                   required
                 />
+                <p class="label"><label for="phone" class="label">phone</label></p>
+    
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="phone"
+                  autofocus
+                  required
+                />
+                <p class="label"><label for="address" class="label">Address</label></p>
+    
     
                 <p class="label">
                   <label for="password" class="label">Password</label>
@@ -78,18 +91,17 @@
                   placeholder="Enter password"
                   required
                 />
-                <p class="label">
-                        <label for="confirm-password" class="label">Confirm Password</label>
-                      </p>
-                      <input
-                        type="password"
-                        id="confirm-password"
-                        name="password"
-                        placeholder="Confirm password"
-                        required
-                      />
+
+                <input
+                type="file"
+                id="file"
+                name="file"
+                placeholder="file"
+                required
+              />
+                
                       
-                <button type="submit" id="submit-login">
+                <button type="submit" id="submit">
                   Sign Up
                 </button>
                
@@ -146,5 +158,6 @@
       </div>
     </footer>
     <script src='./JS/index.js'></script>
+    <script src='./JS/register.js'></script>
   </body>
 </html>
