@@ -32,6 +32,11 @@ body {
   height: 85px;
   width: 150px;
 }
+.image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
 nav.nav-bar {
   display: flex;
   justify-content: space-between;
@@ -44,6 +49,13 @@ nav.nav-bar {
     2px 2px 0 rgb(242, 185, 100);
 
   cursor: pointer;
+}
+
+.message-error {
+  color: red;
+}
+.message-success {
+  color: green;
 }
 
 nav.nav-bar a {

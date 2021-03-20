@@ -12,7 +12,7 @@ const signUp = async (e) => {
   console.log("object", avatar);
   // sign up API-endpoint url
   //   https://toolsmarket.herokuapp.com
-  const url = "http://localhost:5000/api/v1/users/register";
+  const url = "https://toolsmarket.herokuapp.com/api/v1/users/register";
 
   // User input data object
   const formData = {
@@ -24,6 +24,7 @@ const signUp = async (e) => {
     password,
   };
 
+  //loop over the the object and convert the entire object to form data
   const form = new FormData();
   for (var key in formData) {
     form.append(key, formData[key]);
@@ -41,21 +42,22 @@ const signUp = async (e) => {
     .then((res) => res.json())
     .then((body) => {
       // check for success status
+      if (body?.status === 409) {
+        feedbackContainer.innerHTML = "user already exist";
+        feedbackContainer.classList.add("message-error");
+        feedbackContainer.classList.remove("message-success");
+      }
 
-      if (body.status === 200) {
+      if (body.message === "success") {
         // store user data in browser local storage
-        // const userData = JSON.stringify({
-        //   id: body.data.newUser.id,
-        //   username: body.data.newUser.lastName,
-        //   token: body.data.token
-        // });
-        console.log("body", body);
-        localStorage.setItem("user", userData);
+        localStorage.setItem("user", JSON.stringify(body.newUser));
 
-        feedbackContainer.innerHTML = "welcome";
-        feedbackContainer.classList.remove("feedback-message-error");
-        feedbackContainer.classList.add("feedback-message-success");
-        // window.scrollTo(0, 0);
+        feedbackContainer.innerHTML = `welcome ${firstName}, account created`;
+        feedbackContainer.classList.remove("message-error");
+        feedbackContainer.classList.add("message-success");
+        setTimeout(() => {
+          window.location.href = "requests.html";
+        }, 2000);
 
         // redirect user to dashboard
         // if (body.data.newUser.isAdmin) {
@@ -85,7 +87,9 @@ const signUp = async (e) => {
       //   }
     })
 
-    .catch((err) => err);
+    .catch((err) => {
+      console.log("ERROR", err);
+    });
 };
 
 // Get sign up button
