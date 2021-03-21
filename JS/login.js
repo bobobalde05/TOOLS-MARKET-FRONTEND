@@ -28,7 +28,7 @@ const signIn = (e) => {
         localStorage.setItem("user", JSON.stringify(body?.user));
 
         feedbackContainer.innerHTML = `Welcome ${body?.user.firstName}`;
-        feedbackContainer.classList.remove("feedback-message-error");
+        feedbackContainer.classList.remove("message-error");
         feedbackContainer.classList.add("message-success");
 
         // redirect user to dashboard after 2 seconds
@@ -42,6 +42,9 @@ const signIn = (e) => {
           }, 2000);
           window.scrollTo(0, 0);
         }
+      } else if (body?.status === 404) {
+        feedbackContainer.innerHTML = "invalid email or password";
+        feedbackContainer.classList.add("message-error");
       }
     })
     .catch((err) => err);
