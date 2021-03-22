@@ -8,7 +8,6 @@ const addTool = async (e) => {
   const feedbackContainer = document.querySelector(".feedback_container");
   feedbackContainer.innerHTML = "";
   // sign up API-endpoint url
-  //   https://toolsmarket.herokuapp.com
   const url = "https://toolsmarket.herokuapp.com/api/v1/tools/add";
 
   // User input data object
