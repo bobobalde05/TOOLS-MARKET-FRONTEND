@@ -2,6 +2,7 @@ const profile_img = document.querySelector(".profile-image");
 //create an image tag
 const image = document.createElement("img");
 const names = document.createElement("span");
+const feedback = document.querySelector(".feedback");
 const user = JSON.parse(localStorage.getItem("user"));
 
 //set src, alt and class attributes to img tag
@@ -26,7 +27,15 @@ const borrowTool = async () => {
     }
   )
     .then((res) => res.json())
-    .then((body) => {})
+    .then((body) => {
+      if (body.message === "Borrow request sent") {
+        feedback.innerHTML = "Borrow request sent";
+        setTimeout(() => {
+          feedback.innerHTML = "";
+          location.reload();
+        }, 3000);
+      }
+    })
     .catch((err) => {
       console.log("ERROR", err);
     });
