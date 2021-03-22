@@ -9,7 +9,7 @@ const addTool = async (e) => {
   feedbackContainer.innerHTML = "";
   // sign up API-endpoint url
   //   https://toolsmarket.herokuapp.com
-  const url = "http://localhost:5000/api/v1/tools/add";
+  const url = "https://toolsmarket.herokuapp.com/api/v1/tools/add";
 
   // User input data object
   const formData = {

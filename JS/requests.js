@@ -18,7 +18,7 @@ profile_img.appendChild(names);
 let id;
 
 const borrowTool = async () => {
-  const url = `http://localhost:5000/api/v1/tools/${id}`;
+  const url = `https://toolsmarket.herokuapp.com/api/v1/tools/${id}`;
   await fetch(
     url,
 
@@ -42,7 +42,7 @@ const borrowTool = async () => {
 };
 
 const fetchTools = async () => {
-  const url = "http://localhost:5000/api/v1/tools";
+  const url = "https://toolsmarket.herokuapp.com/api/v1/tools";
   await fetch(
     url,
 
