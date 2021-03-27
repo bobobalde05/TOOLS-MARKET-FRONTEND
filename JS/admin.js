@@ -17,29 +17,11 @@ names.textContent = `${userInfo?.firstName} ${userInfo?.lastName}`;
 profile_img.appendChild(image);
 profile_img.appendChild(names);
 let id;
-const url = "https://toolsmarket.herokuapp.com/api/v1/tools";
-const borrowTool = async () => {
-  const url = `${url}/update/${id}`;
-  await fetch(url, {
-    method: "PUT",
-  })
-    .then((res) => res.json())
-    .then((body) => {
-      if (body.message === "Borrow request sent") {
-        feedback.innerHTML = "Borrow request sent";
-        setTimeout(() => {
-          feedback.innerHTML = "";
-          location.reload();
-        }, 3000);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+let approvalStatus;
+const url = "http://localhost:5000/api/v1/tools";
 
-const fetchTools = async () => {
-  await fetch(url, {
+const pendingTools = async () => {
+  await fetch(`${url}/pending`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -47,22 +29,19 @@ const fetchTools = async () => {
       let allTools = "";
       body.tools.forEach(({ tool, avatar, rent, _id }) => {
         id = _id;
+
         allTools += `
             <tr>
             <td>${tool}</td>
-            <td>${rent}</td>
+            <td>&#163; ${rent}</td>
             <td><img src=${avatar} class="image"></td>
-           ${
-             user?.userType === "user"
-               ? `<td class="borrow-button"><button onclick="borrowTool()">Borrow</button><td>`
-               : ` <td class="approve-button">
-           <select onchange="approval()">
-           <option value="approve">Approve</option>
-           <option value="reject">Reject</option>
+            <td class="approve-button">
+           <select class="approval" onchange="approval(this.value)">
+           <option value="" disabled selected>Select an option</option>
+           <option value="approved">Approve</option>
+           <option value="rejected">Reject</option>
            </select>
-           </td>`
-           }
-           
+           </td>
           </tr>`;
       });
 
@@ -70,6 +49,23 @@ const fetchTools = async () => {
     })
     .catch((err) => {
       console.log("ERROR", err);
+    });
+};
+pendingTools();
+const approval = async (approval) => {
+  await fetch(`${url}/approve/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ approval }),
+  })
+    .then((res) => res.json())
+    .then((body) => {
+      console.log("body", body);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };
 

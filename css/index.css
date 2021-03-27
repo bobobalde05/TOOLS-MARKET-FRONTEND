@@ -28,6 +28,11 @@ body {
   width: 100%;
 }
 
+.approval {
+  height: 30px;
+  width: 150px;
+}
+
 .logo {
   height: 85px;
   width: 150px;
@@ -445,7 +450,7 @@ td:nth-child(5):hover {
 
 .request-form h2 {
   margin-bottom: 40px;
-  margin-left: 20%;
+  margin-left: 12%;
   font-weight: bolder;
   font-size: 30px;
   color: rgba(0, 0, 0, 0.829);
@@ -487,8 +492,7 @@ td:nth-child(5):hover {
   border-radius: 3px;
   border: none;
   width: 20%;
-  margin-left: 25%;
-  margin-top: 20px;
+  margin-left: 20%;
   cursor: pointer;
 }
 

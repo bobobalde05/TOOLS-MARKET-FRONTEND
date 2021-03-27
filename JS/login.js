@@ -1,9 +1,10 @@
 const signIn = (e) => {
+  const feedbackContainer = document.querySelector(".login-message");
+  feedbackContainer.innerHTML = "";
   e.preventDefault();
   // get form data
   const userEmail = document.getElementById("email").value;
   const userPassword = document.getElementById("password").value;
-  const feedbackContainer = document.querySelector(".login-message");
 
   const url = "https://toolsmarket.herokuapp.com/api/v1/users/login";
 
