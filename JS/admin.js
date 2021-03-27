@@ -18,7 +18,7 @@ profile_img.appendChild(image);
 profile_img.appendChild(names);
 let id;
 let approvalStatus;
-const url = "http://localhost:5000/api/v1/tools";
+const url = "https://toolsmarket.herokuapp.com/api/v1/tools";
 
 const pendingTools = async () => {
   await fetch(`${url}/pending`, {
