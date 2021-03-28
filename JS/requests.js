@@ -17,10 +17,9 @@ names.textContent = `${userInfo?.firstName} ${userInfo?.lastName}`;
 profile_img.appendChild(image);
 profile_img.appendChild(names);
 let id;
-const url = "https://toolsmarket.herokuapp.com/api/v1/tools";
+let url = "https://toolsmarket.herokuapp.com/api/v1/tools";
 const borrowTool = async () => {
-  const url = `${url}/update/${id}`;
-  await fetch(url, {
+  await fetch(`${url}/update/${id}`, {
     method: "PUT",
   })
     .then((res) => res.json())
