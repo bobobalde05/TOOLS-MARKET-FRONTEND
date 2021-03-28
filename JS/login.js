@@ -43,7 +43,7 @@ const signIn = (e) => {
           }, 2000);
           window.scrollTo(0, 0);
         }
-      } else if (body?.status === 404) {
+      } else if (body?.status === 404 || body?.status === 400) {
         feedbackContainer.innerHTML = "invalid email or password";
         feedbackContainer.classList.add("message-error");
       }
