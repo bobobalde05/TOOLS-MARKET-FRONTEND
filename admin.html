@@ -10,12 +10,14 @@
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
+    <!-- Link css file to apply styles -->
     <link rel="stylesheet" href="css/index.css" />
 
     <title>Tools Market</title>
   </head>
   <body>
     <div class="container">
+        <!-- navigation header -->
       <header class="header">
         <img class="logo" src="img/useTools.jpg" alt="logo" />
         <nav class="nav-bar" id="myTopnav">
@@ -26,20 +28,24 @@
             <i class="fa fa-bars"></i>
           </a>
         </nav>
+        <!-- user avatar -->
         <div class="profile-image">
          
       </div>
       </header>
       <div class="requests">
         <h2>Pending Approvals</h2>
+        <!-- Container for error and success message -->
         <div class="feedback" style="color:green; font-size: 18px;font-weight: bold;"></div>
         <table >
+            <!-- table header -->
           <thead class="request-heading">
             <th>Tool</th>
             <th>rent</th>
             <th>image</th>
             <th>Approval</th>
           </thead>
+          <!--pending tools awaiting approval would be injected here -->
           <tbody class='toolss'>
             
           </tbody>
@@ -47,9 +53,7 @@
       </div>
 
     </div>
-   
-
-    
+    <!-- Link appropriate javascript files -->
     <script src="./JS/index.js"></script>
     <script src='./JS/admin.js' defer></script>
   </body>

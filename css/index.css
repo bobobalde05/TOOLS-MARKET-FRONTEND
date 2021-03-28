@@ -240,6 +240,7 @@ input {
   justify-content: space-between;
 }
 
+/* styles for slider carousel */
 #slider {
   overflow: hidden;
   width: 50%;
