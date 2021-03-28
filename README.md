@@ -28,7 +28,7 @@ The API is currently in version 1 (v2) and is hosted at
 
 [https://my-quick-credit-app.herokuapp.com/signup](https://my-quick-credit-app.herokuapp.com/signup)
 
-## API Documentation
+## API URL
 
 [https://my-quick-credit-app.herokuapp.com/api-docs](https://my-quick-credit-app.herokuapp.com/api-docs)
 
