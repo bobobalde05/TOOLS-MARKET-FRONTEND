@@ -196,7 +196,31 @@ a {
 .transparent:hover {
   background: brown;
 }
+/* style for suspend button */
 
+.suspend {
+  width: 130px;
+  background-color: red;
+  color: white;
+  padding: 10px 11px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.reactivate {
+  width: 130px;
+  background-color: green;
+  color: white;
+  padding: 10px 11px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+input {
+  outline: none;
+}
 .transparent {
   background: transparent;
   border: solid white 2px;

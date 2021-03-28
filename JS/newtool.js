@@ -17,7 +17,14 @@ const addTool = async (e) => {
     avatar,
     phone,
   };
-
+  //validation: check for emptiness of any of the input fields
+  for (var key in formData) {
+    if (formData[key] === "") {
+      feedbackContainer.classList.remove("message-success");
+      feedbackContainer.classList.add("message-error");
+      return (feedbackContainer.innerHTML = "Please fill all fields");
+    }
+  }
   //loop over the the object and convert the entire object to form data
   const form = new FormData();
   for (var key in formData) {
@@ -39,7 +46,8 @@ const addTool = async (e) => {
       if (body.message === "success") {
         // store user data in browser local storage
         feedbackContainer.classList.add("message-success");
-        feedbackContainer.innerHTML = `tool added successfully`;
+        feedbackContainer.innerHTML = `Tool added,please wait for approval from the administrator`;
+        //remove success message after 3 seconds
         setTimeout(() => {
           feedbackContainer.classList.remove("message-success");
           feedbackContainer.innerHTML = "";

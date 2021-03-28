@@ -50,11 +50,11 @@ const fetchTools = async () => {
         allTools += `
             <tr>
             <td>${tool}</td>
-            <td>${rent}</td>
+            <td>&#163;${rent}</td>
             <td><img src=${avatar} class="image"></td>
            ${
              user?.userType === "user"
-               ? `<td class="borrow-button"><button onclick="borrowTool()">Borrow</button><td>`
+               ? `<td class="borrow-button"><button style="cursor:pointer" onclick="borrowTool()">Borrow</button><td>`
                : ` <td class="approve-button">
            <select onchange="approval()">
            <option value="approve">Approve</option>
@@ -72,7 +72,7 @@ const fetchTools = async () => {
       console.log("ERROR", err);
     });
 };
-
+fetchTools();
 function logOut() {
   localStorage.clear();
   setTimeout(() => {

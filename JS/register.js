@@ -1,4 +1,8 @@
+// Get sign up button
+const signupbtn = document.getElementById("submit");
+
 const signUp = async (e) => {
+  signupbtn.innerHTML = "Loading...";
   e.preventDefault();
   // get all user input values
   const firstName = document.getElementById("firstName").value;
@@ -11,7 +15,6 @@ const signUp = async (e) => {
   feedbackContainer.innerHTML = "";
   console.log("object", avatar);
   // sign up API-endpoint url
-  //   https://toolsmarket.herokuapp.com
   const url = "https://toolsmarket.herokuapp.com/api/v1/users/register";
 
   // User input data object
@@ -23,7 +26,14 @@ const signUp = async (e) => {
     email,
     password,
   };
-
+  for (var key in formData) {
+    if (formData[key] === "") {
+      feedbackContainer.classList.remove("message-success");
+      feedbackContainer.classList.add("message-error");
+      signupbtn.innerHTML = "Sign Up";
+      return (feedbackContainer.innerHTML = "Please fill all fields");
+    }
+  }
   //loop over the the object and convert the entire object to form data
   const form = new FormData();
   for (var key in formData) {
@@ -58,42 +68,13 @@ const signUp = async (e) => {
         setTimeout(() => {
           window.location.href = "requests.html";
         }, 2000);
-
-        // redirect user to dashboard
-        // if (body.data.newUser.isAdmin) {
-        //   setTimeout(() => {
-        //     window.location.href = "admin.html";
-        //   }, 2000);
-        //   // hideSpinner(e);
-        // }
-        // setTimeout(() => {
-        //   window.location.href = "user.html";
-        // }, 1000);
       }
-      //   else {
-      //     feedbackContainer.innerHTML = displayFeedback(body);
-      //     feedbackContainer.classList.add("feedback-message-error");
-      //     body.error.forEach(element => {
-      //       Object.keys(formData).forEach(key => {
-      //         if (element.key === key) {
-      //           document.querySelector(`.${element.key}`).style.border =
-      //             "0.7px solid #dc3545";
-      //           document.querySelector(
-      //             `.${element.key}`
-      //           ).nextElementSibling.innerHTML = element.Rule;
-      //         }
-      //       });
-      //     });
-      //   }
     })
 
     .catch((err) => {
       console.log("ERROR", err);
     });
 };
-
-// Get sign up button
-const signupbtn = document.getElementById("submit");
 
 // bind click event to sign up button
 signupbtn.addEventListener("click", signUp);

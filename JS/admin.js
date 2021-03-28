@@ -18,22 +18,25 @@ profile_img.appendChild(image);
 profile_img.appendChild(names);
 let id;
 let approvalStatus;
+
 const url = "https://toolsmarket.herokuapp.com/api/v1/tools";
 
+//function to make request to get pending tools
 const pendingTools = async () => {
   await fetch(`${url}/pending`, {
     method: "GET",
   })
     .then((res) => res.json())
-    .then((body) => {
+    .then((tool) => {
       let allTools = "";
-      body.tools.forEach(({ tool, avatar, rent, _id }) => {
+      //loop over the tools and create a row with the tool information
+      tool.tools.forEach(({ tool, avatar, rent, _id }) => {
         id = _id;
 
         allTools += `
             <tr>
             <td>${tool}</td>
-            <td>&#163; ${rent}</td>
+            <td>&#163;${rent}</td>
             <td><img src=${avatar} class="image"></td>
             <td class="approve-button">
            <select class="approval" onchange="approval(this.value)">
@@ -44,14 +47,17 @@ const pendingTools = async () => {
            </td>
           </tr>`;
       });
-
+      //insert the rows into its container
       container.innerHTML = allTools;
     })
     .catch((err) => {
       console.log("ERROR", err);
     });
 };
+//call the pending tools function
 pendingTools();
+
+// function that triggers request for tool approval
 const approval = async (approval) => {
   await fetch(`${url}/approve/${id}`, {
     method: "PUT",
@@ -62,26 +68,34 @@ const approval = async (approval) => {
   })
     .then((res) => res.json())
     .then((body) => {
-      console.log("body", body);
+      feedback.innerHTML = "Tool approved";
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-function logOut() {
+//function to log out
+const logOut = () => {
   localStorage.clear();
   setTimeout(() => {
     window.location.href = "index.html";
   }, 500);
-}
+};
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("user")); //Get user info from local storage
 const signInTab = document.querySelector(".tab");
 const logout = document.querySelector(".logout");
 logout.style.display = "none";
+
+//dynamically display signin or logout tab based on the login status
 if (user) {
   signInTab.style.display = "none";
   logout.style.display = "block";
 }
+
+//trigger logout
 logout.addEventListener("click", logOut);
