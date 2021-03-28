@@ -16,6 +16,10 @@ const updateStatus = async () => {
     .then((res) => res.json())
     .then((body) => {
       feedback_container.innerHTML = "user status updated";
+
+      setTimeout(() => {
+        location.reload();
+      }, 3000);
     })
     .catch((err) => {
       console.log(err);
@@ -54,10 +58,6 @@ const getAllUsers = async () => {
 
       //inject user rows into users table
       usersContainer.innerHTML = allUsers;
-
-      setTimeout(() => {
-        location.reload();
-      }, 3000);
     })
     .catch((err) => {
       console.log("ERROR", err);
