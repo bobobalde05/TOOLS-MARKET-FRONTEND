@@ -18,15 +18,13 @@
 - CSS
 - Javascript
 
+## Demo Video
+
+[https://www.loom.com/share/d17269fa4bda43d497cb4e29358f26a6](https://www.loom.com/share/d17269fa4bda43d497cb4e29358f26a6)
+
 ## Template UI
 
 You can see a hosted version of the template at [https://tolaked.github.io/Quick_Credit/index.html](https://tolaked.github.io/Quick_Credit/index.html)
-
-### API
-
-The API is currently in version 1 (v2) and is hosted at
-
-[https://my-quick-credit-app.herokuapp.com/signup](https://my-quick-credit-app.herokuapp.com/signup)
 
 ## API URL
 
