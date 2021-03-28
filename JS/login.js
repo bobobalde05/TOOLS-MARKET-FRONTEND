@@ -22,8 +22,8 @@ const signIn = (e) => {
   })
     .then((res) => res.json())
     .then((body) => {
+      console.log("object", body);
       // check for success status
-      console.log("body", body);
       if (body?.status === 200) {
         // store user data in browser local storage
         localStorage.setItem("user", JSON.stringify(body?.user));
@@ -43,12 +43,14 @@ const signIn = (e) => {
           }, 2000);
           window.scrollTo(0, 0);
         }
-      } else if (body?.status === 404 || body?.status === 400) {
+      } else if (body.message === "invalid email or password") {
         feedbackContainer.innerHTML = "invalid email or password";
         feedbackContainer.classList.add("message-error");
       }
     })
-    .catch((err) => err);
+    .catch((err) => {
+      console.log("see err", err);
+    });
 };
 
 const signInBtn = document.getElementById("login-btn");
