@@ -22,10 +22,6 @@
 
 [https://www.loom.com/share/d17269fa4bda43d497cb4e29358f26a6](https://www.loom.com/share/d17269fa4bda43d497cb4e29358f26a6)
 
-## Template UI
-
-You can see a hosted version of the template at [https://bobobalde05.github.io/TOOLS-MARKET-FRONTEND/index.html](https://bobobalde05.github.io/TOOLS-MARKET-FRONTEND/index.html)
-
 ## Author
 
 Olayiwola Muyiwa
