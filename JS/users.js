@@ -1,4 +1,5 @@
 const usersContainer = document.querySelector(".users");
+const feedback_container = document.querySelector(".feedback");
 const url = "https://toolsmarket.herokuapp.com/api/v1/users";
 let id;
 let update;
@@ -13,7 +14,9 @@ const updateStatus = async () => {
     body: JSON.stringify({ status: update }),
   })
     .then((res) => res.json())
-    .then((body) => {})
+    .then((body) => {
+      feedback_container.innerHTML = "user status updated";
+    })
     .catch((err) => {
       console.log(err);
     });
@@ -30,6 +33,8 @@ const getAllUsers = async () => {
         id = _id;
         if (status === "active") {
           update = "suspended";
+        } else {
+          update = "active";
         }
         allUsers += `
                 <tr>
@@ -49,6 +54,10 @@ const getAllUsers = async () => {
 
       //inject user rows into users table
       usersContainer.innerHTML = allUsers;
+
+      setTimeout(() => {
+        location.reload();
+      }, 3000);
     })
     .catch((err) => {
       console.log("ERROR", err);
