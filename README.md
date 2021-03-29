@@ -18,6 +18,16 @@
 - CSS
 - Javascript
 
+## Admin
+
+- email: olayiwolamuyiwa@ymail.com
+- password: 12345678
+
+## User
+
+- email: john@yahoo.com
+- password: 12345678
+
 ## Demo Video
 
 [https://www.loom.com/share/d17269fa4bda43d497cb4e29358f26a6](https://www.loom.com/share/d17269fa4bda43d497cb4e29358f26a6)
